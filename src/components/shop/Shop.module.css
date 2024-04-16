@@ -1,0 +1,12 @@
+.shop {
+    display: flex;
+    gap: 105px;
+}
+.heading {
+    font-weight: 800;
+    font-size: 70px;
+    line-height: 140%;
+    text-align: center;
+    color: #025162;  
+    margin-bottom: 60px;  
+}
