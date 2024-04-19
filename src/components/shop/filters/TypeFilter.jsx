@@ -2,7 +2,7 @@ import React from 'react';
 import TypeFilterBlock from './TypeFilterBlock';
 import classes from './TypeFilter.module.css'
 
-const TypeFilter = ({filtersImg}) => {
+const TypeFilter = ({filtersImg, filter, setFilter}) => {
     return (
         <div className={classes.wrapper}>
             <TypeFilterBlock image={filtersImg('./lens.svg')}>
