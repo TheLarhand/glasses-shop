@@ -5,7 +5,7 @@ import Filters from './filters/Filters';
 import ProductForm from './productFrom/ProductForm';
 import SearchFilter from './filters/SearchFilter';
 
-const Shop = ({products, filtersImg, create, filter, setFilter}) => {
+const Shop = ({products, filterInfo, create, filter, setFilter}) => {
     return (
         <div className={classes.wrapper}>
             <h1 className={classes.heading}>Shop</h1>
@@ -20,7 +20,7 @@ const Shop = ({products, filtersImg, create, filter, setFilter}) => {
                 <Filters
                     filter={filter}
                     setFilter={setFilter}
-                    filtersImg={filtersImg}
+                    filterInfo={filterInfo}
                 />
                 <MainProducts 
                     products={products}

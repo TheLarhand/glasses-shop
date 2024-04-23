@@ -1,3 +1,6 @@
+.notActive {
+    opacity: 30%;
+}
 .wrapper {
     display: flex;
     flex-direction: column;

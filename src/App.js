@@ -9,10 +9,10 @@ function App() {
   const filterInfo = [
     {title: "Contact Lenses", image: filtersImg('./lens.svg')},
     {title: "Colored Lenses", image: filtersImg('./colored lens.svg')},
-    {title: "Contact Lenses", image: filtersImg('./blue glasses.svg')},
-    {title: "Contact Lenses", image: filtersImg('./sport glasses.svg')},
-    {title: "Contact Lenses", image: filtersImg('./sunglasses.svg')},
-    {title: "Contact Lenses", image: filtersImg('./glasses.svg')},
+    {title: "Blue light", image: filtersImg('./blue glasses.svg')},
+    {title: "Sports", image: filtersImg('./sport glasses.svg')},
+    {title: "Sunwear", image: filtersImg('./sunglasses.svg')},
+    {title: "Optical", image: filtersImg('./glasses.svg')},
   ]
   const [products, setProducts] = useState([
     {name: "lenses 1", type: "1", price: 5000, image: productsImg('./glasses1.png'), body: "description", year: 2020, brand: "brand 1"},
@@ -39,11 +39,11 @@ function App() {
   return (
     <div className="App">
       <Shop
-      filter={filter}
-      setFilter={setFilter}
-      create={createProduct} 
-      filtersImg={filtersImg}
-      products={sortedAndSearchedProducts}/>
+        filter={filter}
+        filterInfo={filterInfo}
+        setFilter={setFilter}
+        create={createProduct}
+        products={sortedAndSearchedProducts}/>
     </div>
   );
 }

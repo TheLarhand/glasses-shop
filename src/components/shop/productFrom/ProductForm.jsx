@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 const ProductForm = ({create}) => {
-    const[product, setProduct] = useState({name: "", type: "1", price: 0, img: "", body: "", year: 0, brand: ""})
+    const[product, setProduct] = useState({name: "", type: "1", price: 0, image: "", body: "", year: 0, brand: ""})
 
     const addNewProduct = (e) => {
         e.preventDefault();
@@ -38,8 +38,8 @@ const ProductForm = ({create}) => {
                 placeholder="enter price" 
             />
             <input
-                value={product.img}
-                onChange={e => setProduct({...product, img: e.target.value})}
+                value={product.image}
+                onChange={e => setProduct({...product, image: e.target.value})}
                 type="text"
                 placeholder="enter image url"  
             />
