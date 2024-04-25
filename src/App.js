@@ -22,13 +22,30 @@ function App() {
     {name: "sunwear glasses 1", type: "5", price: 5000, image: productsImg('./glasses1.png'), body: "description", year: 2020, brand: "brand 1"},
     {name: "optical glasses 1", type: "6", price: 5000, image: productsImg('./glasses1.png'), body: "description", year: 2020, brand: "brand 1"},
   ])
-  //доделай фильтр g
 
-  const[filter, setFilter] = useState({sort: '', query: ''})
+  const[filter, setFilter] = useState({sort: '', query: '', type: []})
+
+  const sortedProducts = useMemo(() => {
+    console.log("sorted products");
+    if(filter.sort){
+      console.log("if");
+      return [...products]
+      //потом доделай
+    } else {
+      console.log("else");
+      return [...products]
+    }
+  }, [filter.sort, products])
 
   const sortedAndSearchedProducts = useMemo(() => {
-    return products.filter(product => product.name.toLowerCase().includes(filter.query.toLowerCase()))
-  }, [filter.query, products])
+    return sortedProducts.filter(product => {
+      const nameMatches = product.name.toLowerCase().includes(filter.query.toLowerCase());
+      const typeMatches = filter.type.length === 0 || filter.type.includes(product.type);
+
+      return nameMatches && typeMatches;
+    });
+  }, [filter.query, filter.type, sortedProducts]);
+  
 
   const createProduct = (product) => {
     setProducts([...products, product])

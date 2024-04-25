@@ -6,31 +6,30 @@ const TypeFilter = ({ filterInfo, filter, setFilter }) => {
     // Изменено начальное состояние activeFilters
     const [activeFilters, setActiveFilters] = useState([false, false, false, false, false, false]);
 
-    const [firstClick, setFirstClick] = useState(true)
-
     const switchFilter = (index) => {
         const newActiveFilters = [...activeFilters];
         newActiveFilters[index] = !newActiveFilters[index];
         setActiveFilters(newActiveFilters);
-    };
-
-    const switchFirstClick = () => {
-        setFirstClick(false);
+        if(newActiveFilters[index]){
+            setFilter({...filter, type: [...filter.type, `${index + 1}`]})
+        } else {
+            const newType = filter.type.filter(el => el !== `${index + 1}`);
+            setFilter({...filter, type: newType})
+        }
     };
 
     return (
         <div className={classes.wrapper}>
-            {filterInfo.map((filter, index) => (
+            {filterInfo.map((filterItem, index) => (
                 <TypeFilterBlock
                     key={index}
                     index={index}
-                    image={filter.image}
+                    image={filterItem.image}
                     isActive={activeFilters[index]}
-                    firstClick={firstClick}
-                    switchFirstClick={switchFirstClick}
                     switchFilter={switchFilter}
+                    filterUsed={filter.type.length === 0}
                 >
-                    {filter.title}
+                    {filterItem.title}
                 </TypeFilterBlock>
             ))}
         </div>

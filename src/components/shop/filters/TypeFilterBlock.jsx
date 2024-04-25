@@ -1,14 +1,14 @@
 import React from 'react';
 import classes from './TypeFilterBlock.module.css';
 
-const TypeFilterBlock = ({ index, children, isActive, image, switchFilter, firstClick, switchFirstClick }) => {
+const TypeFilterBlock = ({ index, children, isActive, image, switchFilter, filterUsed, filterStatus}) => {
+
     const handleClick = () => {
         switchFilter(index);
-        switchFirstClick();
     };
 
     return (
-        <div onClick={handleClick} className={`${classes.wrapper} ${isActive || firstClick  ? '' : classes.notActive}`}>
+        <div onClick={handleClick} className={`${classes.wrapper} ${isActive || filterUsed ? '' : classes.notActive} `}>
             <div className={classes.back}>
                 <img src={image} alt="filter-icon" />
             </div>
