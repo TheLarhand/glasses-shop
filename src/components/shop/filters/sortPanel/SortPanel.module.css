@@ -1,0 +1,17 @@
+.wrapper {
+    display: flex;
+    justify-content: center;
+    border-radius: 4px;
+    width: 260px;
+    height: fit-content;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    box-shadow: 0 10px 20px 0 rgba(41, 41, 42, 0.07);
+    background-color: rgb(255, 255, 255);
+    margin-top: 20px;
+}
+.options {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}

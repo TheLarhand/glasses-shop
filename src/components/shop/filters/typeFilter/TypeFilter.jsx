@@ -3,7 +3,6 @@ import TypeFilterBlock from './TypeFilterBlock';
 import classes from './TypeFilter.module.css';
 
 const TypeFilter = ({ filterInfo, filter, setFilter }) => {
-    // Изменено начальное состояние activeFilters
     const [activeFilters, setActiveFilters] = useState([false, false, false, false, false, false]);
 
     const switchFilter = (index) => {

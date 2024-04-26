@@ -15,27 +15,38 @@ function App() {
     {title: "Optical", image: filtersImg('./glasses.svg')},
   ]
   const [products, setProducts] = useState([
-    {name: "lenses 1", type: "1", price: 5000, image: productsImg('./glasses1.png'), body: "description", year: 2020, brand: "brand 1"},
-    {name: "color lenses 1", type: "2", price: 5000, image: productsImg('./glasses1.png'), body: "description", year: 2020, brand: "brand 1"},
-    {name: "blue glasses 1", type: "3", price: 5000, image: productsImg('./glasses1.png'), body: "description", year: 2020, brand: "brand 1"},
-    {name: "sport glasses 1", type: "4", price: 5000, image: productsImg('./glasses1.png'), body: "description", year: 2020, brand: "brand 1"},
-    {name: "sunwear glasses 1", type: "5", price: 5000, image: productsImg('./glasses1.png'), body: "description", year: 2020, brand: "brand 1"},
-    {name: "optical glasses 1", type: "6", price: 5000, image: productsImg('./glasses1.png'), body: "description", year: 2020, brand: "brand 1"},
+    {name: "lenses 1", type: "1", price: 500, image: productsImg('./glasses1.png'), body: "description", year: 2023, brand: "brand 1"},
+    {name: "color lenses 1", type: "2", price: 50, image: productsImg('./glasses1.png'), body: "description", year: 2020, brand: "brand 1"},
+    {name: "blue glasses 1", type: "3", price: 4000, image: productsImg('./glasses1.png'), body: "description", year: 2020, brand: "brand 1"},
+    {name: "sport glasses 1", type: "4", price: 1000, image: productsImg('./glasses1.png'), body: "description", year: 2020, brand: "brand 1"},
+    {name: "sunwear glasses 1", type: "5", price: 8000, image: productsImg('./glasses1.png'), body: "description", year: 2020, brand: "brand 1"},
+    {name: "optical glasses 1", type: "6", price: 5000, image: productsImg('./glasses1.png'), body: "description", year: 2023, brand: "brand 1"},
   ])
 
-  const[filter, setFilter] = useState({sort: '', query: '', type: []})
+  const[filter, setFilter] = useState({sort: '', sortInvert: false, query: '', type: []})
 
   const sortedProducts = useMemo(() => {
     console.log("sorted products");
-    if(filter.sort){
-      console.log("if");
-      return [...products]
-      //потом доделай
-    } else {
-      console.log("else");
-      return [...products]
+    if(filter.sort === "name"){
+      if(filter.sortInvert){
+        return [...products].sort((a, b) => b[filter.sort].localeCompare(a[filter.sort]))
+      } 
+      else {
+        return [...products].sort((a, b) => a[filter.sort].localeCompare(b[filter.sort]))
+      }
     }
-  }, [filter.sort, products])
+
+    else if(filter.sort){
+      if(filter.sortInvert){
+        return [...products].sort((a, b) => b[filter.sort] - a[filter.sort])
+      } 
+      else {
+        return [...products].sort((a, b) => a[filter.sort] - b[filter.sort])
+      }
+    } 
+      return products;
+
+  }, [filter.sort, filter.sortInvert, products])
 
   const sortedAndSearchedProducts = useMemo(() => {
     return sortedProducts.filter(product => {

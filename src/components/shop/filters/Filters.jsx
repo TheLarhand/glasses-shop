@@ -1,7 +1,7 @@
 import React from 'react';
-import TypeFilter from './TypeFilter';
+import TypeFilter from './typeFilter/TypeFilter';
 import classes from './Filter.module.css';
-import SortPanel from './SortPanel';
+import SortPanel from './sortPanel/SortPanel';
 
 const Filters = ({filterInfo, filter, setFilter}) => {
     return (
@@ -15,7 +15,16 @@ const Filters = ({filterInfo, filter, setFilter}) => {
             {/* добавь вывод кол-ва результатов и мб фильтров сверху */}
             {/* доделай сортировку */}
             <SortPanel
-                
+                options={[
+                    {value: "name", sortInvert: false, name: "Sort by name A-Z"},
+                    {value: "name", sortInvert: true, name: "Sort by name Z-A"},
+                    {value: "price", sortInvert: false, name: "Sort by price from cheap to expensive"},
+                    {value: "price", sortInvert: true, name: "Sort by price from expensive to cheap"},
+                    {value: "year", sortInvert: false, name: "Sort by year from old to new"},
+                    {value: "year", sortInvert: true, name: "Sort by year from new to old"},
+                ]}
+                filter={filter}
+                setFilter={setFilter}
             />
         </div>
     );
