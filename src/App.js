@@ -23,30 +23,43 @@ function App() {
     {name: "optical glasses 1", type: "6", price: 5000, image: productsImg('./glasses1.png'), body: "description", year: 2023, brand: "brand 1"},
   ])
 
-  const[filter, setFilter] = useState({sort: '', sortInvert: false, query: '', type: []})
+  const[filter, setFilter] = useState({
+    sort: '',
+    sortInvert: false, 
+    query: '', 
+    type: [], 
+    priceDiapason: {min: 0, max: Infinity}
+  })
 
   const sortedProducts = useMemo(() => {
     console.log("sorted products");
+    const productsCopy = [...products];
+    if (filter.priceDiapason.min > 0 || filter.priceDiapason.max !== Infinity) {
+      productsCopy = productsCopy.filter(product => {
+        const price = product.price; 
+        return price >= filter.priceDiapason.min && price <= filter.priceDiapason.max;
+    });
+    }
     if(filter.sort === "name"){
       if(filter.sortInvert){
-        return [...products].sort((a, b) => b[filter.sort].localeCompare(a[filter.sort]))
+        return [...productsCopy].sort((a, b) => b[filter.sort].localeCompare(a[filter.sort]))
       } 
       else {
-        return [...products].sort((a, b) => a[filter.sort].localeCompare(b[filter.sort]))
+        return [...productsCopy].sort((a, b) => a[filter.sort].localeCompare(b[filter.sort]))
       }
     }
 
     else if(filter.sort){
       if(filter.sortInvert){
-        return [...products].sort((a, b) => b[filter.sort] - a[filter.sort])
+        return [...productsCopy].sort((a, b) => b[filter.sort] - a[filter.sort])
       } 
       else {
-        return [...products].sort((a, b) => a[filter.sort] - b[filter.sort])
+        return [...productsCopy].sort((a, b) => a[filter.sort] - b[filter.sort])
       }
     } 
-      return products;
+      return productsCopy;
 
-  }, [filter.sort, filter.sortInvert, products])
+  }, [filter.sort, filter.sortInvert, filter.priceDiapason, products])
 
   const sortedAndSearchedProducts = useMemo(() => {
     return sortedProducts.filter(product => {

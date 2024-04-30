@@ -1,5 +1,5 @@
 import React from 'react';
-import classes from './SortOption.module.css'
+import classes from './SortPanel.module.css'
 import checked from '../../../../images/UI/check.svg'
 
 const SortOption = ({option ,index , switchSort, checkedSorts}) => {
@@ -9,7 +9,7 @@ const SortOption = ({option ,index , switchSort, checkedSorts}) => {
     } 
 
     return (
-        <div onClick={handleClick} className={classes.wrapper}>
+        <div onClick={handleClick} className={classes.option}>
             <div className={classes.checkBlock}>
                 {checkedSorts[index] && (
                     <img src={checked} alt="checked logo" />

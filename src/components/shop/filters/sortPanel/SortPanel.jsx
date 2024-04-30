@@ -1,31 +1,39 @@
 import React, { useState }  from 'react';
 import classes from './SortPanel.module.css'
-import SortOption from './SortOption';
+import SortOptions from './SortOptions';
+import SortPrices from './SortPrices';
 
 const SortPanel = ({options, filter, setFilter}) => {
     const [checkedSorts, setCheckedSorts] = useState([false, false, false, false, false, false])
 
     const switchSort = (index, value, isInvert) => {
-        setFilter({...filter, sort: value, sortInvert: isInvert})
         const newCheckedSorts = [false, false, false, false, false, false]
-        newCheckedSorts[index] = !newCheckedSorts[index]
+        if(checkedSorts[index]){
+            setFilter({...filter, sort: ''})
+        } else {
+            setFilter({...filter, sort: value, sortInvert: isInvert})
+            newCheckedSorts[index] = !newCheckedSorts[index]
+        }
         setCheckedSorts(newCheckedSorts)
     }
 
-    //сделай отключение сортировки
+    // const priceSort = (min, max) => {
+    //     const newPriceDiapason = {min: min, max: max};
+    //     setFilter({...filter, priceDiapason: newPriceDiapason})
+    // }
 
     return (
         <div className={classes.wrapper}>
-            <div className={classes.options}>
-                {options.map((option, index) => (
-                    <SortOption
-                        option={option}
-                        index={index}
-                        switchSort={switchSort}
-                        checkedSorts={checkedSorts}
-                    />
-                ))}
-            </div>
+            <SortOptions
+                options={options}
+                switchSort={switchSort}
+                checkedSorts={checkedSorts}
+            />
+            <div className={classes.line} />
+            <SortPrices
+                filter={filter}
+                setFilter={setFilter}
+            />
         </div>
     );
 }

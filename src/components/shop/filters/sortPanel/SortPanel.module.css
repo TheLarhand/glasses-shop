@@ -1,6 +1,7 @@
 .wrapper {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     border-radius: 4px;
     width: 260px;
     height: fit-content;
@@ -10,8 +11,62 @@
     background-color: rgb(255, 255, 255);
     margin-top: 20px;
 }
+.line {
+    border-top: 1.5px solid #025162;
+    width: 210px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
 .options {
     display: flex;
     flex-direction: column;
+    width: 210px;
     gap: 20px;
+}
+.option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+.checkBlock {
+    border: 1px solid #025162;
+    width: 12px;
+    height: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+}
+.text {
+    font-family: "Manrope", sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 162%;
+    color: #414141;
+}
+.sortPrices {
+    display: flex;
+    width: 210px;
+    justify-content: space-between;
+    align-items: center;
+}
+.input {
+    border: 1px solid #025162;
+    width: 65px;
+    height: 15px;
+}
+.dash {
+    border-top: 1px solid #025162;
+    width: 15px;
+}
+.btn {
+    border: 1px solid #025162;
+    width: 17px;
+    height: 17px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    cursor: pointer;
 }
