@@ -33,13 +33,12 @@ function App() {
 
   const sortedProducts = useMemo(() => {
     console.log("sorted products");
-    const productsCopy = [...products];
+    let productsCopy = [...products];
     if (filter.priceDiapason.min > 0 || filter.priceDiapason.max !== Infinity) {
-      productsCopy = productsCopy.filter(product => {
-        const price = product.price; 
-        return price >= filter.priceDiapason.min && price <= filter.priceDiapason.max;
-    });
-    }
+      productsCopy = productsCopy.filter((product) => {
+      const price = product.price; 
+      return price >= filter.priceDiapason.min && price <= filter.priceDiapason.max;
+    })}
     if(filter.sort === "name"){
       if(filter.sortInvert){
         return [...productsCopy].sort((a, b) => b[filter.sort].localeCompare(a[filter.sort]))

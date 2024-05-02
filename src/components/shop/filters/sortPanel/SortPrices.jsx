@@ -5,13 +5,15 @@ import arrow from '../../../../images/UI/right-arrow2.svg'
 const SortPrices = ({filter, setFilter}) => {
     const[priceState, setPriceState] = useState({min: 0, max: Infinity})
     const priceFilter = () => {
-        setFilter({...filter, priceDiapason: {...filter.priceDiapason, min: priceState.min}})
+        const minPrice = priceState.min === '' ? 0 : parseFloat(priceState.min);
+        const maxPrice = priceState.max === '' ? Infinity : parseFloat(priceState.max);
+        setFilter({...filter, priceDiapason: {max: maxPrice, min: minPrice}});
     }
-    //ниче не работает поправь
+
     return (
         <div className={classes.sortPrices}>
             <input 
-                lassName={classes.input} 
+                className={classes.input} 
                 type="number"
                 onChange={e => setPriceState({...priceState, min: e.target.value})} 
             />
