@@ -17,11 +17,6 @@ const SortPanel = ({options, filter, setFilter}) => {
         setCheckedSorts(newCheckedSorts)
     }
 
-    // const priceSort = (min, max) => {
-    //     const newPriceDiapason = {min: min, max: max};
-    //     setFilter({...filter, priceDiapason: newPriceDiapason})
-    // }
-
     return (
         <div className={classes.wrapper}>
             <SortOptions

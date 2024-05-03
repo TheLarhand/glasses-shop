@@ -7,6 +7,7 @@ const SortOptions = ({options, switchSort, checkedSorts}) => {
         <div className={classes.options}>
             {options.map((option, index) => (
                 <SortOption
+                    key={index}
                     option={option}
                     index={index}
                     switchSort={switchSort}

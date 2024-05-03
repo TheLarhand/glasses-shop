@@ -20,6 +20,7 @@ function App() {
     {name: "blue glasses 1", type: "3", price: 4000, image: productsImg('./glasses1.png'), body: "description", year: 2020, brand: "brand 1"},
     {name: "sport glasses 1", type: "4", price: 1000, image: productsImg('./glasses1.png'), body: "description", year: 2020, brand: "brand 1"},
     {name: "sunwear glasses 1", type: "5", price: 8000, image: productsImg('./glasses1.png'), body: "description", year: 2020, brand: "brand 1"},
+    {name: "Revel Slater", type: "5", price: 65.80, image: productsImg('./sunglasses1.jpg'), body: "The Revel Slater is a stylish sunglasses frame that's impossible to ignore. Hand crafted from lightweight TR-90, it features a high keyhole-shaped nose bridge, flexible arms and a lustrous hue.", year: 2024, brand: "Klarna"},
     {name: "optical glasses 1", type: "6", price: 5000, image: productsImg('./glasses1.png'), body: "description", year: 2023, brand: "brand 1"},
   ])
 
