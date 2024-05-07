@@ -1,5 +1,6 @@
 * {
   margin: 0;
+  text-decoration: none; 
   font-family: Manrope, Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

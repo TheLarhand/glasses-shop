@@ -45,7 +45,7 @@
     background-color: rgba(0, 0, 0, 0.486);
 }
 .popup {
-    width: 80%;
+    width: fit-content;
     height: 700px;
     margin-left: auto;
     margin-right: auto;
@@ -54,18 +54,17 @@
     box-shadow: 0 10px 20px 0 rgba(41, 41, 42, 0.07);
 }
 .popupTop {
-    width: 100%;
+    width: fit-content;
     display: flex;
     gap: 40px;
     height: 500px;
 }
 .popupImage {
-    width: 60%;
+    width: 1000px;
     height: 500px;
     object-fit: cover;
 }
 .popupInfo {
-    border: 1px solid black;
     padding: 20px;  
 }
 .popupHeading {
@@ -85,6 +84,7 @@
     padding-right: unset;
 }
 .popupBody {
+    width: 1200px;
     background-color: #41414125;
     padding: 30px;
     font-size: 20px;

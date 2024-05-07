@@ -1,11 +1,22 @@
 import { useMemo, useState } from 'react';
 import './App.css';
 import Shop from './components/shop/Shop';
+import Header from './components/header/Header';
 
 const productsImg = require.context('./images/products', false, /\.(png|jpe?g|svg)$/);
 const filtersImg = require.context('./images/UI/filters', false, /\.(png|jpe?g|svg)$/);
 
 function App() {
+  const navigationInfo = [
+    {title: "Shops", link: "#"},
+    {title: "Offers", link: "#"}, 
+    {title: "Warranty", link: "#"}, 
+    {title: "Medical", link: "#"}, 
+    {title: "Info", link: "#"}, 
+    {title: "Blog", link: "#"}, 
+    {title: "About us", link: "#"}, 
+    {title: "Contact", link: "#"},  
+  ]
   const filterInfo = [
     {title: "Contact Lenses", image: filtersImg('./lens.svg')},
     {title: "Colored Lenses", image: filtersImg('./colored lens.svg')},
@@ -79,6 +90,9 @@ function App() {
 
   return (
     <div className="App">
+      <Header
+        navigationInfo={navigationInfo}
+      />
       <Shop
         filter={filter}
         filterInfo={filterInfo}

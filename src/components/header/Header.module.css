@@ -1,0 +1,39 @@
+.wrapper {
+    margin-top: 70px;
+    margin-bottom: 90px;
+}
+.headerTop {
+    display: flex;
+    flex-direction: column;
+    gap: 70px;
+    width: 1365px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.headerTopRow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.headerTopRow div {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.headerTopLink {
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 133%;
+    color: #414141;
+}
+.headerNav {
+    display: flex;
+    gap: 20px;
+}
+.navLink {
+    display: block;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 100%;
+    color: #414141;
+}
