@@ -35,6 +35,8 @@ function App() {
     {name: "optical glasses 1", type: "6", price: 5000, image: productsImg('./glasses1.png'), body: "description", year: 2023, brand: "brand 1"},
   ])
 
+  const [modalVisible, setModalVisible] = useState(false)
+
   const[filter, setFilter] = useState({
     sort: '',
     sortInvert: false, 
@@ -84,6 +86,7 @@ function App() {
 
   const createProduct = (product) => {
     setProducts([...products, product])
+    setModalVisible(false)
 
     console.log("create product");
   }
@@ -98,6 +101,8 @@ function App() {
         filterInfo={filterInfo}
         setFilter={setFilter}
         create={createProduct}
+        modalVisible={modalVisible}
+        setModalVisible={setModalVisible}
         products={sortedAndSearchedProducts}/>
     </div>
   );

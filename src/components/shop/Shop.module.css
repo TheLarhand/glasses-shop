@@ -15,3 +15,15 @@
     color: #025162;  
     margin-bottom: 60px;  
 }
+.createBtn {
+    display: block;
+    margin-left: auto;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    border: 0;
+    padding: 5px;
+    background-color: #025162;
+    font-weight: 300;
+    color: white;
+    cursor: pointer; 
+}

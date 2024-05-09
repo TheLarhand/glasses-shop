@@ -2,18 +2,22 @@ import React from 'react';
 import TypeFilter from './typeFilter/TypeFilter';
 import classes from './Filter.module.css';
 import SortPanel from './sortPanel/SortPanel';
+import SearchFilter from './SearchFilter';
 
 const Filters = ({filterInfo, filter, setFilter}) => {
     return (
         <div>
             <h2 className={classes.heading}>Filters</h2>
+            <SearchFilter
+                filter={filter}
+                setFilter={setFilter}
+            />
             <TypeFilter
                 filterInfo={filterInfo}
                 filter={filter}
                 setFilter={setFilter}
             />
             {/* добавь вывод кол-ва результатов и мб фильтров сверху */}
-            {/* доделай сортировку */}
             <SortPanel
                 options={[
                     {value: "name", sortInvert: false, name: "Sort by name A-Z"},

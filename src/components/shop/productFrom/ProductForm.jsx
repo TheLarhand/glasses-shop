@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import classes from './ProductsForm.module.css'
 
 const ProductForm = ({create}) => {
     const[product, setProduct] = useState({name: "", type: "1", price: 0, image: "", body: "", year: 0, brand: ""})
@@ -11,7 +12,7 @@ const ProductForm = ({create}) => {
       }
 
     return (
-        <form action="#">
+        <form className={classes.form} action="#">
             <input
                 value={product.name}
                 onChange={e => setProduct({...product, name: e.target.value})}

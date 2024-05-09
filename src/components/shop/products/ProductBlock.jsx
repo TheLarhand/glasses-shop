@@ -2,10 +2,10 @@ import React from 'react';
 import classes from './Products.module.css';
 import arrow from '../../../images/UI/right-arrow.svg';
 
-const ProductBlock = ({product, popupState, setPopupState}) => {
+const ProductBlock = ({product, popupState, setPopupState, setModalVisible}) => {
     const showPopup = () => {
-        setPopupState({hide: false, selectedProduct: product})
-        console.log(popupState.selectedProduct);
+        setPopupState({selectedProduct: product})
+        setModalVisible(true)
     }
     return (
         <div className={classes.product}>

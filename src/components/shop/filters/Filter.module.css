@@ -5,3 +5,8 @@
     color: #025162;
     margin-bottom: 50px;    
 }
+.searchFilter {
+    border: 1px solid #025162;
+    width: 255px;
+    margin-bottom: 20px;
+}

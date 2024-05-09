@@ -11,12 +11,7 @@ const ProductPopup = ({product, setPopupState}) => {
     };
 
     return (
-        <div
-            onClick={hidePopup} 
-            className={classes.popupBack}
-        >
             <div 
-                onClick={handleInnerClick} 
                 className={classes.popup}
             >
                 <div className={classes.popupTop}>
@@ -34,7 +29,6 @@ const ProductPopup = ({product, setPopupState}) => {
                 </p>
                 
             </div>
-        </div>
     );
 }
 
