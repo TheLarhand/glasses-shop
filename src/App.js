@@ -2,6 +2,7 @@ import { useMemo, useState } from 'react';
 import './App.css';
 import Shop from './components/shop/Shop';
 import Header from './components/header/Header';
+import Footer from './components/footer/Footer';
 
 const productsImg = require.context('./images/products', false, /\.(png|jpe?g|svg)$/);
 const filtersImg = require.context('./images/UI/filters', false, /\.(png|jpe?g|svg)$/);
@@ -24,6 +25,10 @@ function App() {
     {title: "Sports", image: filtersImg('./sport glasses.svg')},
     {title: "Sunwear", image: filtersImg('./sunglasses.svg')},
     {title: "Optical", image: filtersImg('./glasses.svg')},
+  ]
+  const articlesInfo = [
+    {title: "Headline", body: "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem.+"},
+    {title: "Headline", body: "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem.+"}
   ]
   const [products, setProducts] = useState([
     {name: "lenses 1", type: "1", price: 500, image: productsImg('./glasses1.png'), body: "description", year: 2023, brand: "brand 1"},
@@ -103,7 +108,12 @@ function App() {
         create={createProduct}
         modalVisible={modalVisible}
         setModalVisible={setModalVisible}
-        products={sortedAndSearchedProducts}/>
+        products={sortedAndSearchedProducts}
+      />
+      <Footer
+        articlesInfo={articlesInfo}
+      />
+
     </div>
   );
 }

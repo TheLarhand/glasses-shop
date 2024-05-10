@@ -21,17 +21,10 @@ const MainProducts = ({products, modalVisible, setModalVisible}) => {
                 <ProductBlock
                 key={index}
                 product={product}
-                popupState={popupState}
                 setPopupState={setPopupState}
                 setModalVisible={setModalVisible}
                 />
             ))}
-            {/* {popupState.hide ? null : 
-                <ProductPopup
-                    product={popupState.selectedProduct}
-                    setPopupState={setPopupState}
-                />
-            } */}
             
         </div>
     );

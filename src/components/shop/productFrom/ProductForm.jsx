@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import classes from './ProductsForm.module.css'
 
-const ProductForm = ({create}) => {
+const ProductForm = ({create, setModalVisible}) => {
     const[product, setProduct] = useState({name: "", type: "1", price: 0, image: "", body: "", year: 0, brand: ""})
 
     const addNewProduct = (e) => {
         e.preventDefault();
         const newProduct = product;
-        console.log(newProduct);
-        create(newProduct)
+        create(newProduct);
+        setModalVisible(false)
       }
 
     return (

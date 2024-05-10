@@ -1,14 +1,7 @@
 import React from 'react';
 import classes from './Products.module.css';
 
-const ProductPopup = ({product, setPopupState}) => {
-    const hidePopup = () => {
-        setPopupState({hide: true, selectedProduct: {}})
-    }
-
-    const handleInnerClick = (e) => {
-        e.stopPropagation(); 
-    };
+const ProductPopup = ({product}) => {
 
     return (
             <div 
