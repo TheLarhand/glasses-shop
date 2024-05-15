@@ -1,4 +1,5 @@
-import { useMemo, useState } from 'react';
+import { useState } from 'react';
+import { useProducts } from './hooks/useProducts';
 import './App.css';
 import Shop from './components/shop/Shop';
 import Header from './components/header/Header';
@@ -50,45 +51,8 @@ function App() {
     priceDiapason: {min: 0, max: Infinity}
   })
 
-  const sortedProducts = useMemo(() => {
-    console.log("sorted products");
-    let productsCopy = [...products];
-    if (filter.priceDiapason.min > 0 || filter.priceDiapason.max !== Infinity) {
-      productsCopy = productsCopy.filter((product) => {
-      const price = product.price; 
-      return price >= filter.priceDiapason.min && price <= filter.priceDiapason.max;
-    })}
-    if(filter.sort === "name"){
-      if(filter.sortInvert){
-        return [...productsCopy].sort((a, b) => b[filter.sort].localeCompare(a[filter.sort]))
-      } 
-      else {
-        return [...productsCopy].sort((a, b) => a[filter.sort].localeCompare(b[filter.sort]))
-      }
-    }
-
-    else if(filter.sort){
-      if(filter.sortInvert){
-        return [...productsCopy].sort((a, b) => b[filter.sort] - a[filter.sort])
-      } 
-      else {
-        return [...productsCopy].sort((a, b) => a[filter.sort] - b[filter.sort])
-      }
-    } 
-      return productsCopy;
-
-  }, [filter.sort, filter.sortInvert, filter.priceDiapason, products])
-
-  const sortedAndSearchedProducts = useMemo(() => {
-    return sortedProducts.filter(product => {
-      const nameMatches = product.name.toLowerCase().includes(filter.query.toLowerCase());
-      const typeMatches = filter.type.length === 0 || filter.type.includes(product.type);
-
-      return nameMatches && typeMatches;
-    });
-  }, [filter.query, filter.type, sortedProducts]);
+  const sortedAndSearchedProducts = useProducts(products, filter.sort, filter.sortInvert, filter.priceDiapason, filter.query, filter.type)
   
-
   const createProduct = (product) => {
     setProducts([...products, product])
     setModalVisible(false)

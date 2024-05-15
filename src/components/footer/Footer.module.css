@@ -60,3 +60,53 @@
     gap: 6px;
     cursor: pointer;
 }
+.footerBottom {
+    height: 460px;
+    background-color: #025162;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.footerBottomWrapper {
+    width: 1400px;
+    display: flex;
+}
+.mainColumn {
+    margin-right: 550px;
+}
+.logo {
+    margin-bottom: 30px;
+}
+.logosWrapper {
+    display: flex;
+    gap: 10px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.socialMedia {
+    width: 32px; 
+    height: 32px;
+    border-radius: 50%;
+    background-color: #026880;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.footerColumn {
+    margin-left: 50px;
+}
+.columnHeading {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 150%;
+    color: white;
+    margin-bottom: 30px;
+}
+.footerText {
+    display: block;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 162%;
+    color: #d9dbe1;
+}
